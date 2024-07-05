@@ -54,5 +54,14 @@ axios.get(url).then((response) => {
       .trim();
   });
   //Selects Details from the Link from the URL
+
+  linkedinJobs.push({
+    Title: jobTitle,
+    Company: company,
+    Location: location,
+    Description: description,
+    Date: datePosted,
+    Link: link,
+  });
 });
 //Gets HTML Elements Parses Them with Cheerio and Selects List Elements
