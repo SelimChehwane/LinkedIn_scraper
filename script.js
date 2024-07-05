@@ -18,8 +18,15 @@ rl.question("Enter the job title you want search for: ", (jobTitle) => {
 
  
   rl.close()})
-//Prompts the User for the Job Title and Inputs it into the URL as a Search Keyword
+//Prompts the User for the Job Title and Inputs It into the URL as a Search Keyword
 
- 
+axios.get(url).then((response) => {
+  const html = response.data;
+  const $ = cheerio.load(html);
+  const linkedinJobs = [];
+  const jobs = $('li');
+})
+//Gets HTML Elements Parses Them with Cheerio and Selects List Elements
+
 
 
