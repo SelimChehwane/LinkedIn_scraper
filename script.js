@@ -23,8 +23,16 @@ rl.question("Enter the job title you want search for: ", (jobTitle) => {
 axios.get(url).then((response) => {
   const html = response.data;
   const $ = cheerio.load(html);
-  const linkedinJobs = [];
   const jobs = $('li');
+
+  jobs.each((index, element) => {
+    const jobTitle = $(element).find('h3.base-search-card__title').text().trim();
+    const company = $(element).find('h4.base-search-card__subtitle').text().trim();
+    const location = $(element).find('span.job-search-card__location').text().trim();
+    const link = $(element).find('a.base-card__full-link').attr('href');
+    const datePosted = $(element).find('time.job-search-card__listdate').attr('datetime');
+  })
+  //Selects Elements and Stores Them
 })
 //Gets HTML Elements Parses Them with Cheerio and Selects List Elements
 
